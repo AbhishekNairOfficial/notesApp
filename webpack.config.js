@@ -2,14 +2,15 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var __DEV__ = process.env.NODE_ENV !== 'production';
+var __PROD__ = process.env.NODE_ENV === 'production';
+var __DEV__ = !__PROD__;
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: __DEV__ ? 'source-map' : false,
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
-        './src/index.jsx'
+        './src/Client.jsx'
     ],
     output: {
         path: path.join(__dirname, 'build'),
@@ -19,10 +20,14 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
-            __DEV__: JSON.stringify(__DEV__)
+            __DEV__: JSON.stringify(__DEV__),
+            __PROD__: JSON.stringify(__PROD__),
+            __CLIENT__: JSON.stringify(true),
+            __SERVER__: JSON.stringify(false)
         }),
         new HtmlWebpackPlugin({
-            title: 'Custom template',
+            minify: __PROD__,
+            title: 'TodoMVC app',
             bodyContent: (function() {
                 require("babel/register");
                 var react = require('react');
@@ -33,7 +38,7 @@ module.exports = {
             template: './src/index.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
         })
-    ],
+    ].concat(__PROD__ ? [new webpack.optimize.UglifyJsPlugin()] : []),
     module: {
         loaders: [{
             test: /\.jsx?$/,

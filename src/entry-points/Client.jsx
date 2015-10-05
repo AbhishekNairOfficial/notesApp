@@ -23,7 +23,6 @@ if (module.hot) {
 }
 
 class App extends Component {
-  constructor(props, context) {
     super(props, context);
     this.state = {
       isReady: false,
@@ -37,8 +36,6 @@ class App extends Component {
     });
   }
   render() {
-    const { isLoggedIn, isReady } = this.state;
-
     return (
       <div>
         <Provider store={store}>

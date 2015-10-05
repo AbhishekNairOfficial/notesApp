@@ -11,3 +11,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect(state => ({ credentials: state.credentials }), dispatch => ({ credentialsActions: bindActionCreators(CredentialsActions, dispatch) }))(Login);

@@ -9,13 +9,9 @@ import Loader from '../containers/Loader.jsx';
 
 const finalCreateStore = compose(
   devTools(),
-  persistState()
 )(createStore);
 
-const reducer = combineReducers(reducers);
-const store = finalCreateStore(reducer);
-
-if (module.hot) {
+if (!__CORDOVA__ && module.hot) {
   module.hot.accept('../reducers', () =>
     store.replaceReducer(combineReducers(require('../reducers')))
   );

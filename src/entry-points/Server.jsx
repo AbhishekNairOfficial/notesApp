@@ -3,7 +3,8 @@ import { createStore, combineReducers, compose } from 'redux';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Provider } from 'react-redux';
-import * as reducers from '../reducers';
+import configureStore from '../store/configureStore';
+import DevTools from './DevTools.jsx';
 
 import Loader from '../containers/Loader.jsx';
 

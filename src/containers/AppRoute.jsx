@@ -8,7 +8,6 @@ export default class AppRoute extends Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool
   };
-  defaultProps() {
     return {
       isLoggedIn: false
     };

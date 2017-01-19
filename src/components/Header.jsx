@@ -2,16 +2,12 @@ import React, { PropTypes, Component } from 'react';
 import TodoTextInput from './TodoTextInput.jsx';
 
 export default class Header extends Component {
-  static propTypes = {
-    addTodo: PropTypes.func.isRequired
-  };
-
+  handleSave = this.handleSave.bind(this);
   handleSave(text) {
     if (text.length !== 0) {
       this.props.addTodo(text);
     }
   }
-
   render() {
     return (
       <header className="header">
@@ -22,4 +18,10 @@ export default class Header extends Component {
       </header>
     );
   }
+}
+if (__DEV__) {
+  // Not needed or used in minified mode
+  Header.propTypes = {
+    addTodo: PropTypes.func.isRequired
+  };
 }

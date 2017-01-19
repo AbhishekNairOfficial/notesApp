@@ -9,14 +9,6 @@ const FILTER_TITLES = {
 };
 
 export default class Footer extends Component {
-  static propTypes = {
-    markedCount: PropTypes.number.isRequired,
-    unmarkedCount: PropTypes.number.isRequired,
-    filter: PropTypes.string.isRequired,
-    onClearMarked: PropTypes.func.isRequired,
-    onShow: PropTypes.func.isRequired
-  }
-
   renderTodoCount() {
     const { unmarkedCount } = this.props;
     const itemWord = unmarkedCount === 1 ? 'item' : 'items';
@@ -68,4 +60,14 @@ export default class Footer extends Component {
       </footer>
     );
   }
+}
+if (__DEV__) {
+  // Not needed or used in minified mode
+  Footer.propTypes = {
+    markedCount: PropTypes.number.isRequired,
+    unmarkedCount: PropTypes.number.isRequired,
+    filter: PropTypes.string.isRequired,
+    onClearMarked: PropTypes.func.isRequired,
+    onShow: PropTypes.func.isRequired
+  };
 }

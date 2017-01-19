@@ -3,18 +3,11 @@ import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput.jsx';
 
 export default class TodoItem extends Component {
-  static propTypes = {
-    todo: PropTypes.object.isRequired,
-    editTodo: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
-    markTodo: PropTypes.func.isRequired
-  };
-
-  constructor(props, context) {
-    super(props, context);
+  componentWillMount() {
     this.state = {
       editing: false
     };
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   handleDoubleClick() {
@@ -65,4 +58,13 @@ export default class TodoItem extends Component {
       </li>
     );
   }
+}
+if (__DEV__) {
+  // Not needed or used in minified mode
+  TodoItem.propTypes = {
+    todo: PropTypes.object.isRequired,
+    editTodo: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired,
+    markTodo: PropTypes.func.isRequired
+  };
 }

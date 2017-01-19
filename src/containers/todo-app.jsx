@@ -1,19 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as TodoActions from '../actions/TodoActions';
-import * as CredentialsActions from '../actions/CredentialsActions';
-import auth from '../core/auth';
-import Header from '../components/Header.jsx';
-import MainSection from '../components/MainSection.jsx';
-import todoStyle from '../style/todo-style.scss';
+import * as TodoActions from 'src/actions/todo-actions.js';
+import * as CredentialsActions from 'src/actions/credentials-actions.js';
+import auth from 'src/core/auth.js';
+import Header from 'src/components/header.jsx';
+import MainSection from 'src/components/main-section.jsx';
+import todoStyle from 'src/style/todo-style.scss';
 
-export class TodoApp extends Component {
-  static propTypes = {
-    todos: PropTypes.array.isRequired,
-    credentialsActions: PropTypes.object.isRequired,
-    todoActions: PropTypes.object.isRequired
-  };
+export class TodoAppComponent extends Component {
+  handleLogout = this.handleLogout.bind(this);
   handleLogout() {
     auth.logout();
     this.props.credentialsActions.clearCredentials();
@@ -36,7 +32,18 @@ export class TodoApp extends Component {
   }
 }
 
-export default connect(state => ({ todos: state.todos }), dispatch => ({
+if (__DEV__) {
+  // Not needed or used in minified mode
+  TodoAppComponent.propTypes = {
+    todos: PropTypes.array.isRequired,
+    credentialsActions: PropTypes.object.isRequired,
+    todoActions: PropTypes.object.isRequired
+  };
+}
+
+const TodoApp = connect(state => ({ todos: state.todos }), dispatch => ({
   credentialsActions: bindActionCreators(CredentialsActions, dispatch),
   todoActions: bindActionCreators(TodoActions, dispatch)
-}))(TodoApp);
+}))(TodoAppComponent);
+
+export default TodoApp;

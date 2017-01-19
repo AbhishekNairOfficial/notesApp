@@ -10,13 +10,10 @@ const TODO_FILTERS = {
 };
 
 export default class MainSection extends Component {
-  static propTypes = {
-    todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-  };
-  constructor(props, context) {
-    super(props, context);
+  componentWillMount() {
     this.state = { filter: SHOW_ALL };
+    this.handleClearMarked = this.handleClearMarked.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   handleClearMarked() {
@@ -80,4 +77,11 @@ export default class MainSection extends Component {
       </section>
     );
   }
+}
+if (__DEV__) {
+  // Not needed or used in minified mode
+  MainSection.propTypes = {
+    todos: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
+  };
 }

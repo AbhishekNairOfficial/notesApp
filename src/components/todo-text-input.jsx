@@ -2,19 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
 export default class TodoTextInput extends Component {
-  static propTypes = {
-    onSave: PropTypes.func.isRequired,
-    text: PropTypes.string,
-    placeholder: PropTypes.string,
-    editing: PropTypes.bool,
-    newTodo: PropTypes.bool
-  };
-
-  constructor(props, context) {
-    super(props, context);
+  componentWillMount() {
     this.state = {
       text: this.props.text || ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleSubmit(e) {
@@ -49,4 +43,14 @@ export default class TodoTextInput extends Component {
              onKeyDown={::this.handleSubmit} />
     );
   }
+}
+if (__DEV__) {
+  // Not needed or used in minified mode
+  TodoTextInput.propTypes = {
+    onSave: PropTypes.func.isRequired,
+    text: PropTypes.string,
+    placeholder: PropTypes.string,
+    editing: PropTypes.bool,
+    newTodo: PropTypes.bool
+  };
 }

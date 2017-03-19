@@ -11,15 +11,18 @@ const TODO_FILTERS = {
 
 export default class MainSection extends Component {
   componentWillMount() {
-    this.state = { filter: SHOW_ALL };
+    this.state = {
+      filter: SHOW_ALL
+    };
     this.handleClearMarked = this.handleClearMarked.bind(this);
     this.handleShow = this.handleShow.bind(this);
   }
 
   handleClearMarked() {
-    const atLeastOneMarked = this.props.todos.some(todo => todo.marked);
+    const { todos, clearMarked } = this.props;
+    const atLeastOneMarked = todos.some(todo => todo.marked);
     if (atLeastOneMarked) {
-      this.props.actions.clearMarked();
+      clearMarked();
     }
   }
 
@@ -28,7 +31,7 @@ export default class MainSection extends Component {
   }
 
   renderToggleAll(markedCount) {
-    const { todos, actions } = this.props;
+    const { todos, markAll } = this.props;
     if (todos.length > 0) {
       return (
         <input className="toggle-all"
@@ -57,7 +60,7 @@ export default class MainSection extends Component {
 
   render() {
     const { filter } = this.state;
-    const { todos, actions } = this.props;
+    const { todos, ...actions } = this.props;
 
     const filteredTodos = todos.filter(TODO_FILTERS[filter]);
     const markedCount = todos.reduce((count, todo) =>
@@ -81,7 +84,8 @@ export default class MainSection extends Component {
 if (__DEV__) {
   // Not needed or used in minified mode
   MainSection.propTypes = {
-    todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    todos: PropTypes.arrayOf(TodoItem.propTypes.todo).isRequired,
+    clearMarked: PropTypes.func.isRequired,
+    markAll: PropTypes.func.isRequired
   };
 }

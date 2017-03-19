@@ -2,9 +2,15 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
 export default class TodoTextInput extends Component {
+  static defaultProps = {
+    defaultText: '',
+    placeholder: '',
+    editing: false,
+    newTodo: true
+  };
   componentWillMount() {
     this.state = {
-      text: this.props.text || ''
+      text: this.props.defaultText
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -32,8 +38,10 @@ export default class TodoTextInput extends Component {
   }
 
   render() {
+    const { placeholder, editing, newTodo } = this.props;
+    const { text } = this.state;
+
     return (
-      <input className={classnames({ edit: this.props.editing, 'new-todo': this.props.newTodo })}
              type="text"
              placeholder={this.props.placeholder}
              autoFocus="true"
@@ -42,15 +50,3 @@ export default class TodoTextInput extends Component {
              onChange={::this.handleChange}
              onKeyDown={::this.handleSubmit} />
     );
-  }
-}
-if (__DEV__) {
-  // Not needed or used in minified mode
-  TodoTextInput.propTypes = {
-    onSave: PropTypes.func.isRequired,
-    text: PropTypes.string,
-    placeholder: PropTypes.string,
-    editing: PropTypes.bool,
-    newTodo: PropTypes.bool
-  };
-}

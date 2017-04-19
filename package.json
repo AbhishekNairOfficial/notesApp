@@ -1,6 +1,5 @@
 {
   "name": "react-cordova-boilerplate",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "eslint-plugin-flowtype": "^3.2.0",

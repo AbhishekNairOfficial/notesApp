@@ -40,7 +40,10 @@
     "test:coverage:watch": "echo \"Error: `nyc` doesn't support watch mode\" && exit 1",
     "test:watch:coverage": "npm run test:coverage:watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-eslint": "^7.1.1",
@@ -97,5 +100,13 @@
     "webpack-dev-server": "^2.2.0",
     "webpack-node-externals": "^1.5.4",
     "whatwg-fetch": "^2.0.1"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

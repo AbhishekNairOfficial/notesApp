@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.example.todomvc" version="1.1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <hook type="before_prepare" src="hooks/build.sh" />
+    <hook src="hooks/build.sh" type="before_prepare" />
     <name>TodoMvc</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -24,4 +24,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <engine name="android" spec="^7.0.0" />
 </widget>

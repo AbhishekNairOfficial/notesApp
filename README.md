@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/unimonkiez/react-cordova-boilerplate.svg)](https://travis-ci.org/unimonkiez/react-cordova-boilerplate)
 [![Dependency Status](https://david-dm.org/unimonkiez/react-cordova-boilerplate.svg)](https://david-dm.org/unimonkiez/react-cordova-boilerplate)
 [![devDependency Status](https://david-dm.org/unimonkiez/react-cordova-boilerplate/dev-status.svg)](https://david-dm.org/unimonkiez/react-cordova-boilerplate#info=devDependencies)
@@ -102,3 +103,6 @@ Sass style will be minified, bundled and included to the server rendered file.
 
 ## Troubleshooting
 - ```Node Sass could not find a binding for your current environment: OS X 64-bit with Node.js X.x``` If you get an error like this means you previously installed Node SASS in an older version of Node which no longer applies to you. To fix run ```npm rebuild node-sass```
+=======
+# notesApp
+Making the notes app using React and Cordova

@@ -5,6 +5,9 @@
 * {
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+}
 
 .App-header {
   background-color: #222;

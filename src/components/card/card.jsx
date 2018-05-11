@@ -5,10 +5,14 @@ export default class Card extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
         <div className="card">
           <div className="card-top">
+            <span className="card-title">
+              {this.props.data.name}
+            </span>
             <div className="card-attachments">
               <i className={this.isAttached("image")}>insert_photo</i>
               <i className={this.isAttached("video")}>play_arrow</i>
@@ -17,15 +21,14 @@ export default class Card extends Component {
           </div>
 
           <div className="card-content">
-            <span className="card-title">
-              {this.props.data.name}
-            </span>
             <div className="card-description">
               {this.props.data.description}
             </div>
           </div>
 
-          <div className="card-bottom"></div>
+          <div className="card-bottom">
+            {this.forEach(this.props.data.tags)}
+          </div>
         </div>
     );
   }
@@ -47,11 +50,23 @@ export default class Card extends Component {
       }
       break;
     case "file":
-    if (this.props.data.file) {
+      if (this.props.data.file) {
         return "material-icons";
       } else {
         return "material-icons greyed";
       }
-}
+    }
+  }
+
+  forEach(tags){
+    if (!tags) {
+      tags = [{name:"notes"}];
+    }
+    var tagList = tags.map(function(item,key) {
+      return (
+        <span className="card-bottom-tag" key={key}>{item.name}</span>
+      );
+    });
+    return tagList;
   }
 }

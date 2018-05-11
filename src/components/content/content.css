@@ -1,10 +1,15 @@
 .content {
-  margin-top: calc( 10vh + 5px);
-  background-color: #ccc;
+  margin-top: calc( 6vh + 5px);
 }
 .card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card-bottom-line {
+  width: 95%;
+  margin-top: 0;
+  margin-bottom: 0;
 }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Card from '../card/card.jsx';
+import {MuiThemeProvider, withStyles, createStyleSheet} from 'material-ui/styles';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 import './content.css';
 
 var items = [
@@ -27,10 +30,23 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content">
-          <div className="card-container">
-            {listItems}
-          </div>
+        <div className="sticky-add-btn">
+          <MuiThemeProvider>
+            <FloatingActionButton zDepth={4} backgroundColor="#46b5ff">
+              <ContentAdd
+                onClick={this.onAddButtonClick}
+              />
+            </FloatingActionButton>
+          </MuiThemeProvider>
+        </div>
+        <div className="card-container">
+          {listItems}
+        </div>
       </div>
     );
+  }
+
+  onAddButtonClick() {
+    alert("Haven't added functionality yet!");
   }
 }

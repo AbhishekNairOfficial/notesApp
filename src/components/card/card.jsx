@@ -6,9 +6,50 @@ export default class Card extends Component {
     super(props);
   }
 
+  isAttached(type) {
+    switch (type) {
+      case "image":
+      if (this.props.data.image) {
+        return "material-icons";
+      } else {
+        return "material-icons greyed";
+      }
+      break;
+      case "video":
+      if (this.props.data.video) {
+        return "material-icons";
+      } else {
+        return "material-icons greyed";
+      }
+      break;
+      case "file":
+      if (this.props.data.file) {
+        return "material-icons";
+      } else {
+        return "material-icons greyed";
+      }
+    }
+  }
+
+  forEach(tags){
+    if (!tags) {
+      tags = [{name:"notes"}];
+    }
+    var tagList = tags.map(function(item,key) {
+      return (
+        <div className="card-bottom-tag" key={key}>{item.name}</div>
+      );
+    });
+    return tagList;
+  }
+
+  onCardClick(props) {
+    console.log(props.data.name);
+  }
+
   render() {
     return (
-        <div className="card">
+        <div className="card" onClick={(e)=>this.onCardClick(this.props)}>
           <div className="card-top">
             <span className="card-title">
               {this.props.data.name}
@@ -31,42 +72,5 @@ export default class Card extends Component {
           </div>
         </div>
     );
-  }
-
-  isAttached(type) {
-    switch (type) {
-    case "image":
-      if (this.props.data.image) {
-        return "material-icons";
-      } else {
-        return "material-icons greyed";
-      }
-      break;
-    case "video":
-      if (this.props.data.video) {
-        return "material-icons";
-      } else {
-        return "material-icons greyed";
-      }
-      break;
-    case "file":
-      if (this.props.data.file) {
-        return "material-icons";
-      } else {
-        return "material-icons greyed";
-      }
-    }
-  }
-
-  forEach(tags){
-    if (!tags) {
-      tags = [{name:"notes"}];
-    }
-    var tagList = tags.map(function(item,key) {
-      return (
-        <span className="card-bottom-tag" key={key}>{item.name}</span>
-      );
-    });
-    return tagList;
   }
 }

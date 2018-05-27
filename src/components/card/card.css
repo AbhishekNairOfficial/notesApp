@@ -40,7 +40,8 @@
   text-overflow: ellipsis;
   overflow:hidden;
   font-family: 'Lato', sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
+  color: #333;
 }
 
 /* Bottom */
@@ -56,11 +57,12 @@
 }
 .card-bottom-tag {
   text-transform: uppercase;
-  font-size: 0.7em;
+  font-size: 0.6em;
   border-radius: 50px;
-  background-color: #87ceeb;
+  background-color: #46b5ff;
   padding: 3px 5px;
   margin-right: 10px;
   margin-left: 1px;
   font-family: 'Comfortaa', cursive;
+  padding-top: 5px;
 }

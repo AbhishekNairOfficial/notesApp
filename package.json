@@ -41,11 +41,14 @@
     "test:watch:coverage": "npm run test:coverage:watch"
   },
   "dependencies": {
+    "@material-ui/core": "^1.1.0",
     "cordova-android": "^7.0.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "material-design-icons": "^3.0.1"
+    "inline-style-prefixer": "^4.0.2",
+    "material-design-icons": "^3.0.1",
+    "material-ui": "^0.20.1"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",

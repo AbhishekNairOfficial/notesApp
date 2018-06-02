@@ -4,13 +4,19 @@
   background-color: #46b5ff;
   position: fixed;
   top: 0;
-  padding: 10px 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgb(0,0,0, 0.3);
   z-index: 200;
 }
+
+.header>.material-icons {
+  width: 30px;
+  font-size: 30px;
+}
+
 .title {
   font-family: 'Arvo', serif;
   /* text-transform: uppercase; */

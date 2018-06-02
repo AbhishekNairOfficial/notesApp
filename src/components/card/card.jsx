@@ -44,7 +44,7 @@ export default class Card extends Component {
   }
 
   onCardClick(props) {
-    console.log(props.data.name);
+    this.props.callback(props.data);
   }
 
   render() {

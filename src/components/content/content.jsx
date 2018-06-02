@@ -3,6 +3,8 @@ import Card from '../card/card.jsx';
 import {MuiThemeProvider, withStyles, createStyleSheet} from 'material-ui/styles';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import List from './list/list.jsx';
+import EditPage from './edit-page/edit-page.jsx';
 import './content.css';
 
 var items = [
@@ -18,35 +20,40 @@ var items = [
   { name: "John", description:"It is nice.", image:"yes"},
 ];
 
-var listItems = items.map(function(item,key) {
-  return (
-    <div key={key}>
-      <Card data={item} />
-      <hr className="card-bottom-line"/>
-    </div>
-  );
-});
 export default class Content extends Component {
-  render() {
-    return (
-      <div className="content">
-        <div className="sticky-add-btn">
-          <MuiThemeProvider>
-            <FloatingActionButton zDepth={4} backgroundColor="#46b5ff">
-              <ContentAdd
-                onClick={this.onAddButtonClick}
-              />
-            </FloatingActionButton>
-          </MuiThemeProvider>
-        </div>
-        <div className="card-container">
-          {listItems}
-        </div>
-      </div>
-    );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      view : this.props.view,
+      selectedData: [],
+    };
+    this.onAddButtonClick = this.onAddButtonClick.bind(this);
+    this.onDataSelect = this.onDataSelect.bind(this);
   }
 
-  onAddButtonClick() {
-    alert("Haven't added functionality yet!");
+  componentWillReceiveProps(nextProps) {
+    this.setState({view:nextProps.view});
+  }
+
+  render() {
+    if (this.state.view == "list") {
+      return (
+        <List items={items} onAddButtonClick={this.onAddButtonClick} callback={this.onDataSelect} />
+      );
+    } else {
+      return (
+        <EditPage data={this.state.selectedData} />
+      );
+    }
+  }
+
+  onAddButtonClick(data) {
+    // this.setState({view:'edit'});
+    this.props.callback("edit");
+  }
+
+  onDataSelect(data) {
+    this.setState({selectedData:data});
   }
 }

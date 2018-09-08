@@ -8,4 +8,4 @@ Follow the below steps to use this boilerplate for your applications.
 - Clone the repo to your system.
 - Write your code inside the ./src folder, and use npm start to visualise your development.
 - When you're done with your work, run the command <code>gulp build cordova</code>. This runs <code>npm run build</code>, which builds a minified version of your application, and then moves the build files to the ```./cordova/www``` folder.
-- Now, change directorty to ```./cordova```, and run <code>cordova run android</code> or <code>cordova build ios</code>, or whichever platform you have installed.
+- Now, change directory to ```./cordova```, and run <code>cordova run android</code> or <code>cordova build ios</code>, or whichever platform you have installed.

@@ -24,7 +24,7 @@ export default class Header extends Component {
     return (
       <div className="header">
         <i className="material-icons" onClick={this.onBackClick}>{this.state.leftIcon}</i>
-        <span className="title">Notes</span>
+        <span className="title">NotesApp</span>
         <i className="material-icons">{this.state.rightIcon}</i>
       </div>
     );

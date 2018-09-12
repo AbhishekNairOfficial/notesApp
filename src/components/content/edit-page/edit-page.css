@@ -1,14 +1,14 @@
 .edit-page {
   padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .edit-block {
   width: 95%;
 }
-.edit-page > hr {
-  width: 60%;
-}
-/* Title */
-.note-title-text {
 
+/* Body */
+.note-body-text {
+  font-family: Fira Sans !important;
 }

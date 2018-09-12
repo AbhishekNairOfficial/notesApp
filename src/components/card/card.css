@@ -58,11 +58,12 @@
 .card-bottom-tag {
   text-transform: uppercase;
   font-size: 0.6em;
-  border-radius: 50px;
-  background-color: #46b5ff;
-  padding: 3px 5px;
+  border-radius: 5px;
+  color: #46b5ff;
+  border: 1px solid #46b5ff;
+  line-height: 20px;
+  padding: 0 5px;
   margin-right: 10px;
   margin-left: 1px;
   font-family: 'Comfortaa', cursive;
-  padding-top: 5px;
 }

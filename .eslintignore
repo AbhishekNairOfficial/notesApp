@@ -1,0 +1,4 @@
+src/registerServiceWorker.js
+build/
+cordova/
+node_modules/

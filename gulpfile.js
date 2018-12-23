@@ -1,14 +1,17 @@
-var gulp = require('gulp');
-var clean = require('gulp-clean');
-var debug = require('gulp-debug');
+const gulp = require('gulp');
+const clean = require('gulp-clean');
+const debug = require('gulp-debug');
 
-gulp.task('default',['clean-www'], function() {
-  gulp.src('./build/**/*')
-  .pipe(debug())
-  .pipe(gulp.dest('./cordova/www'));
+const buildFolder = './build/**/*';
+const cordovaFolder = './cordova/www/';
+
+gulp.task('clean-www', () => {
+  gulp.src('cordova/www/**/*', { read: false, force: true }).pipe(clean());
 });
 
-gulp.task('clean-www', function () {
-  gulp.src('./cordova/www')
-  .pipe(clean());
-})
+gulp.task('default', ['clean-www'], () => {
+  gulp
+    .src(buildFolder)
+    .pipe(debug())
+    .pipe(gulp.dest(cordovaFolder));
+});

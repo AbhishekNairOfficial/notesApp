@@ -20,6 +20,10 @@ bin-release/
 
 # dependencies
 /node_modules
+**/node_modules
+
+# cordova
+/cordova/platforms
 
 # testing
 /coverage
@@ -38,5 +42,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+yarn.lock
 cordova/www
 cordova/www/**/**/*

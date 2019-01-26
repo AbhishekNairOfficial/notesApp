@@ -1,18 +1,30 @@
 import React from "react";
-import logo from "./logo.svg";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import ListingPage from "./components/listing-page";
+import NotePage from "./components/note-page";
 import "./App.css";
 
+// List of Notes
+const listItems = ["one", "two", "three"];
+
+// Initialising Components
+const ListingPageWithProps = () => <ListingPage listItems={listItems} />;
+
+// Actual Component Code
 const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1 className="App-title">Welcome to React</h1>
-    </header>
-    <p className="App-intro">
-      <span>To get started, edit</span>
-      <code>src/App.js</code>
-      <span>and save to reload.</span>
-    </p>
+  <div>
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/list" />} />
+        <Route path="/list" component={ListingPageWithProps} />
+        <Route path="/note/:id" component={NotePage} />
+      </Switch>
+    </Router>
   </div>
 );
 

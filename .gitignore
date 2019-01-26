@@ -8,3 +8,5 @@ www/*
 npm-debug.log
 .DS_Store
 .tmp
+package-lock.json
+*.lock

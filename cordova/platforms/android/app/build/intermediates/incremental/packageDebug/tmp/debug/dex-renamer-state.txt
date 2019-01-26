@@ -1,0 +1,7 @@
+#Sun Jan 27 00:14:01 IST 2019
+base.0=/home/abhishek/Documents/projectNair/notesapp/cordova/platforms/android/app/build/intermediates/transforms/dexMerger/debug/12
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/abhishek/Documents/projectNair/notesapp/cordova/platforms/android/app/build/intermediates/transforms/dexMerger/debug/13

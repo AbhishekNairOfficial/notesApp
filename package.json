@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "lint": "node_modules/.bin/eslint --ext=js --ext=jsx --fix .",
-    "build": "react-scripts build && cd cordova && gulp && sudo cordova run android",
+    "build": "react-scripts build && cd cordova && gulp",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

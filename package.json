@@ -44,5 +44,5 @@
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3"
   },
-  "homepage": "."
+  "homepage": "./"
 }

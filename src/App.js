@@ -9,7 +9,9 @@ const App = () => (
       <h1 className="App-title">Welcome to React</h1>
     </header>
     <p className="App-intro">
-      To get started, edit <code>src/App.js</code> and save to reload.
+      <span>To get started, edit</span>
+      <code>src/App.js</code>
+      <span>and save to reload.</span>
     </p>
   </div>
 );

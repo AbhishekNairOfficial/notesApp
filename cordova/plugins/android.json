@@ -8,8 +8,12 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.company.cordovaboilerplate"
+      "PACKAGE_NAME": "com.abhisheknairofficial.notesapp"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.abhisheknairofficial.notesapp"
+    }
+  }
 }

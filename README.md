@@ -1,3 +1,4 @@
+# ⛔️ DEPRECATED
 # React-Cordova-Boilerplate
 
 A boilerplate application using React JS and Apache Cordova to make web applications. Using this boilerplate app, you can use your JS code built through React, and run it as a webview application in Android, iOS, Windows, OSX, browser.
